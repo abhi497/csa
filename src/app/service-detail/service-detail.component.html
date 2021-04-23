@@ -1,0 +1,102 @@
+<!--app header-->
+<app-header></app-header>
+<!--app header end-->
+<div class="upper-banner">
+    <img src="assets/images/inner-banner.jpg" alt="inner-banner">
+</div>
+<div class="common-padding-divider"></div>
+<div class="container">
+    <h2>Services</h2>
+    <div class="description">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel suscipit optio officiis ducimus eum earum consequatur hic, expedita magnam? Repudiandae repellat neque explicabo asperiores eligendi a saepe quia perferendis? Aperiam nulla itaque perspiciatis suscipit nobis possimus, eligendi dignissimos fugit magnam, nihil illum, eos illo autem similique? Tenetur autem explicabo sed placeat, exercitationem doloremque provident, veniam, id laudantium odio enim iste.</p>
+    </div>
+</div>
+<div class="common-padding-divider"></div>
+<div class="container">
+    <form action="" [formGroup]="serviceForm" (ngSubmit)="onSubmit()">
+        <input type="hidden" name="id" formControlName="_id" />
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group row">
+                    <label for="" class="col-md-3">Service Type</label>
+                    <div class="col-md-9">
+                        <select formControlName="requestType" class="form-control" id="serviceType" required
+                        
+                        >
+                        <option *ngFor="let type of this.requestService.requestTypes" [ngValue]="type.key">{{type.value}}</option>
+                            <!-- <option value="electritian">Electritian</option>
+                            <option value="Plumber">Plumber</option>
+                            <option value="carpenter">Carpenter</option>
+                            <option value="cleaner">Cleaner</option> -->
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group row">
+                    <label for="" class="col-md-3">Name</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" formControlName="customerName" id="customerName" required />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group row">
+                    <label for="" class="col-md-3">Contact</label>
+                    <div class="col-md-9">
+                        <input type="tel" class="form-control" formControlName="customerContact" id="contact" required/>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group row">
+                    <label for="" class="col-md-3">Email</label>
+                    <div class="col-md-9">
+                        <input type="email" class="form-control" formControlName="customerEmail" id="email" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group row">
+                    <label for="" class="col-md-3">Address1</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" formControlName="customerAddress" id="address1" required />
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group row">
+                    <label for="" class="col-md-3">City</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" formControlName="city" id="city" required/>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group row">
+                    <label for="" class="col-md-3">Detail</label>
+                    <div class="col-md-9">
+                        <textarea formControlName="requestDescription" class="form-control" id="detail" rows="5"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="text-center">
+                    <button class="btn common-btn" [disabled]="!serviceForm.valid">Submit</button>
+                </div>
+            </div>
+        </div>  
+    </form>
+</div>
+<div class="common-padding-divider"></div>
+
+<!--custom toast-->
+<div class="custom-toast" id="custom-toast">
+    <span class="toast-icon"><i class="fa fa-check-square"></i></span>
+    <span class="toast-message">Your request has been successfully registered</span>
+</div>
+<!--custom toast end-->
+
+<!--app footer-->
+<app-footer></app-footer>
+<!--app footer end-->

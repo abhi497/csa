@@ -1,0 +1,30 @@
+<aside class="sidebar">
+    <div class="sidebar-top">
+        <a class="brand-name">CSA</a>
+        <div class="logged-user-detail">
+            <div class="user-icon">
+                <i class="fa fa-user"></i>
+            </div>
+            <div class="user-info">
+                <h2>Admin</h2>
+                <a>admin@a.com</a>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar-body">
+        <ul>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/admin-dashboard" routerLinkActive="active"><span class="mr-2"><i class="fa fa-dashboard"></i></span> Dashboard</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/admin-requests" routerLinkActive="active"><span class="mr-2"><i class="fa fa-address-book"></i></span> Requests</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/executive" routerLinkActive="active"><span class="mr-2"><i class="fa fa-users"></i></span> Executives</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" *ngIf="_authService.loggedIn()" (click)="_authService.logoutUser()" routerLinkActive="active"><span class="mr-2"><i class="fa fa-sign-out-alt"></i></span> Logout</a>
+            </li>
+        </ul>
+    </div>
+</aside>

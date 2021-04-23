@@ -1,0 +1,41 @@
+<div>
+    <app-sidebar></app-sidebar>
+    
+    <div class="right-panel">
+        <div class="common-padding-divider"></div>
+        <div class="page-header">
+            <h2 class="page-title">Dashboard</h2>
+        </div>
+        <div class="common-padding-divider"></div>
+        <div class="page-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header cursor-pointer" routerLink="/admin-requests">
+                            <h4 class="card-title">
+                                Requests
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-count">{{allRecordsCount}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header cursor-pointer" routerLink="/executive">
+                            <h4 class="card-title">
+                                Executives
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-count">{{allExecutiveCount}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="common-padding-divider"></div>
+    </div>
+
+</div>

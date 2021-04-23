@@ -1,0 +1,148 @@
+<div>
+    <app-sidebar></app-sidebar>
+    
+    <div class="right-panel">
+        <div class="common-padding-divider"></div>
+        <div class="page-header">
+            <h2 class="page-title">Requests</h2>
+        </div>
+        <div class="common-padding-divider"></div>
+        <div class="page-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-stripped">
+                        <thead>
+                            <tr>
+                                <th>Request type</th>
+                                <th>Name</th>
+                                <th>Contact</th>
+                                <th>Email</th>
+                                <th>Address</th>
+                                <th>City</th>
+                                <th>Description</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <ng-container *ngFor="let record of this.requestService.request">
+                                <tr>
+                                    <td>{{record.requestType}}</td>
+                                    <td>{{record.customerName}}</td>
+                                    <td>{{record.customerContact}}</td>
+                                    <td>{{record.customerEmail}}</td>
+                                    <td>{{record.customerAddress}}</td>
+                                    <td>{{record.city}}</td>
+                                    <td>{{record.requestDescription}}</td>
+                                    <td>
+                                        <div class="manipulation-icons">
+                                            <span (click)="onEdit(record, updateDataModal)" class="mr-4"><i class="fa fa-pencil"></i></span>
+                                            <span (click)="onDelete(record._id)"><i class="fa fa-trash"></i></span>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </ng-container>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="common-padding-divider"></div>
+    </div>
+
+    <!--Tosat-->
+    <div class="toast-container position-absolute top-0 end-0 p-3">
+        <div id="deleteToast" class="toast d-flex align-items-center text-white bg-danger border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-body">
+              Data has been deleted sucessfully
+            </div>
+        </div>
+    </div>
+
+    <!--Modal-->
+    <ng-template #updateDataModal let-modal>
+        <!-- <div class="modal" tabindex="-1" id="updatedFormModal">
+            <div class="modal-dialog">
+              <div class="modal-content"> -->
+                <div class="modal-header">
+                  <h5 class="modal-title">Update User Request</h5>
+                  <button type="button" class="btn btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                      <i class="fa fa-times color-white"></i>
+                  </button>
+                </div>
+                <div class="modal-body">
+                
+                    <form action="" #updatedRequestForm="ngForm" (ngSubmit)="onSubmit(updatedRequestForm)" *ngIf="!disableForm">
+                        <input type="hidden" name="_id" class="form-control" #_id="ngModel" [(ngModel)]="this.requestService.selectedRequest._id">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Request Type</label>
+                                    
+                                        <select class="form-control" name="requestType" #requestType="ngModel" [(ngModel)]="this.requestService.selectedRequest.requestType">
+                                            <option *ngFor="let type of this.requestService.requestTypes" [ngValue]="type.key">{{type.value}}</option>
+                                        </select>
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Name</label>
+                                
+                                        <input type="text" class="form-control" name="customerName" #customerName="ngModel" [(ngModel)]="this.requestService.selectedRequest.customerName">
+                                   
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Contact</label>
+                                    
+                                        <input type="text" class="form-control" name="customerContact" #customerContact="ngModel" [(ngModel)]="this.requestService.selectedRequest.customerContact">
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    
+                                        <input type="text" class="form-control" name="customerEmail" #customerEmail="ngModel" [(ngModel)]="this.requestService.selectedRequest.customerEmail">
+                                   
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Address</label>
+                                   
+                                        <input type="text" class="form-control" name="customerAddress" #customerAddress="ngModel" [(ngModel)]="this.requestService.selectedRequest.customerAddress">
+                                    
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>city</label>
+                                    
+                                        <input type="text" class="form-control" name="city" #city="ngModel" [(ngModel)]="this.requestService.selectedRequest.city">
+                                   
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Description</label>
+                                  
+                                        <textarea class="form-control" rows="5" name="requestDescription" #requestDescription="ngModel" [(ngModel)]="this.requestService.selectedRequest.requestDescription">
+                                        </textarea>
+                                  
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </form>
+    
+                </div>
+              <!-- </div>
+            </div>
+        </div> -->
+    </ng-template>
+
+</div>
